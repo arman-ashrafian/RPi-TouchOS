@@ -18,7 +18,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		self.button_lamp.clicked.connect(lambda: self.lamp_clicked())
 
 	def lamp_clicked(self):
-		self.lampWindow.show()
+		self.lampWindow.showFullScreen()
 		self.hide()
 
 class LampWindow(QWidget, Ui_Lamp):
@@ -43,7 +43,7 @@ def main():
 	app = QApplication(sys.argv)
 
 	window = MainWindow()
-	window.show()
+	window.showFullScreen()
 
 	sys.exit(app.exec_())
 
