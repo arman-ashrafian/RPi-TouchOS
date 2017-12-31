@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Lamp</class>
- <widget class="QWidget" name="Lamp">
+ <class>Crypto</class>
+ <widget class="QWidget" name="Crypto">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -309,14 +309,6 @@ QPushButton {
 	font-size: 30pt;
 }
 
-QPushButton#button_on {
-	background-color: #1db954
-}
-
-QPushButton#button_off {
-	background-color: red;
-}
-
 QPushButton#button_back {
 	font-size: 12pt;
 	background-color: #1565C0;
@@ -324,53 +316,6 @@ QPushButton#button_back {
 
 </string>
   </property>
-  <widget class="QPushButton" name="button_on">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>170</y>
-     <width>241</width>
-     <height>171</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>ON</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>20</y>
-     <width>371</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>30</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Lamp Controller</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="button_off">
-   <property name="geometry">
-    <rect>
-     <x>470</x>
-     <y>170</y>
-     <width>241</width>
-     <height>171</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>OFF</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="button_back">
    <property name="geometry">
     <rect>

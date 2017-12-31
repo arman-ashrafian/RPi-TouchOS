@@ -308,6 +308,10 @@ class Ui_MainWindow(object):
 "    background-color: rgb(130,130,130);\n"
 "}\n"
 "\n"
+"QPushButton#button_crypto {\n"
+"    background-color: #00838F\n"
+"}\n"
+"\n"
 "QPushButton#button_exit {\n"
 "    font-size: 12pt;\n"
 "    background-color: #1565C0\n"
@@ -325,6 +329,13 @@ class Ui_MainWindow(object):
         self.button_exit = QtWidgets.QPushButton(self.centralWidget)
         self.button_exit.setGeometry(QtCore.QRect(20, 20, 101, 41))
         self.button_exit.setObjectName("button_exit")
+        self.button_crypto = QtWidgets.QPushButton(self.centralWidget)
+        self.button_crypto.setGeometry(QtCore.QRect(320, 180, 171, 121))
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("ui/stocks.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.button_crypto.setIcon(icon1)
+        self.button_crypto.setIconSize(QtCore.QSize(50, 50))
+        self.button_crypto.setObjectName("button_crypto")
         MainWindow.setCentralWidget(self.centralWidget)
         self.statusBar = QtWidgets.QStatusBar(MainWindow)
         self.statusBar.setObjectName("statusBar")
@@ -338,4 +349,5 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.button_lamp.setText(_translate("MainWindow", "Lamp"))
         self.button_exit.setText(_translate("MainWindow", "EXIT"))
+        self.button_crypto.setText(_translate("MainWindow", "Crypto"))
 
