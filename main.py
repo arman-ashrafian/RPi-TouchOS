@@ -1,6 +1,9 @@
 import PyQt5
 from PyQt5.QtWidgets import *
 import sys
+import requests
+
+LAMP_URL = "https://5658d085.ngrok.io"
 
 # import ui file here
 from mainwindow import Ui_MainWindow 
@@ -32,10 +35,11 @@ class LampWindow(QWidget, Ui_Lamp):
 
 
 	def button_on_pressed(self):
-		print("ON")
+		# send post request to lamp server
+		requests.post(LAMP_URL + "/on/")
 
 	def button_off_pressed(self):
-		print("OFF")
+		requests.post(LAMP_URL + "/off/")
 
 
 
