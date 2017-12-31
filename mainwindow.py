@@ -299,15 +299,32 @@ class Ui_MainWindow(object):
 "\n"
 "/** Custom **/\n"
 "\n"
+"QPushButton {\n"
+"    color: black;\n"
+"    font-size: 20pt;\n"
+"}\n"
+"\n"
 "QPushButton#button_lamp {\n"
 "    background-color: rgb(130,130,130);\n"
+"}\n"
+"\n"
+"QPushButton#button_exit {\n"
+"    font-size: 12pt;\n"
+"    background-color: #1565C0\n"
 "}\n"
 "")
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.centralWidget.setObjectName("centralWidget")
         self.button_lamp = QtWidgets.QPushButton(self.centralWidget)
-        self.button_lamp.setGeometry(QtCore.QRect(90, 170, 171, 121))
+        self.button_lamp.setGeometry(QtCore.QRect(50, 180, 171, 121))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("ui/Lamp-icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.button_lamp.setIcon(icon)
+        self.button_lamp.setIconSize(QtCore.QSize(50, 50))
         self.button_lamp.setObjectName("button_lamp")
+        self.button_exit = QtWidgets.QPushButton(self.centralWidget)
+        self.button_exit.setGeometry(QtCore.QRect(20, 20, 71, 21))
+        self.button_exit.setObjectName("button_exit")
         MainWindow.setCentralWidget(self.centralWidget)
         self.statusBar = QtWidgets.QStatusBar(MainWindow)
         self.statusBar.setObjectName("statusBar")
@@ -320,4 +337,5 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.button_lamp.setText(_translate("MainWindow", "Lamp"))
+        self.button_exit.setText(_translate("MainWindow", "EXIT"))
 

@@ -306,8 +306,18 @@ QMenu::separator {
 
 /** Custom **/
 
+QPushButton {
+	color: black;
+	font-size: 20pt;
+}
+
 QPushButton#button_lamp {
 	background-color: rgb(130,130,130);
+}
+
+QPushButton#button_exit {
+	font-size: 12pt;
+	background-color: #1565C0
 }
 </string>
   </property>
@@ -315,14 +325,37 @@ QPushButton#button_lamp {
    <widget class="QPushButton" name="button_lamp">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>170</y>
+      <x>50</x>
+      <y>180</y>
       <width>171</width>
       <height>121</height>
      </rect>
     </property>
     <property name="text">
      <string>Lamp</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>Lamp-icon.png</normaloff>Lamp-icon.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_exit">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>EXIT</string>
     </property>
    </widget>
   </widget>

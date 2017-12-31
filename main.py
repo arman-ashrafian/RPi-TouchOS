@@ -19,10 +19,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 		## connect buttons
 		self.button_lamp.clicked.connect(lambda: self.lamp_clicked())
+		self.button_exit.clicked.connect(lambda: self.exit_clicked())
 
 	def lamp_clicked(self):
 		self.lampWindow.showFullScreen()
 		self.hide()
+
+	def exit_clicked(self):
+		sys.exit()
 
 class LampWindow(QWidget, Ui_Lamp):
 	def __init__(self):
