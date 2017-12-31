@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui/lamp.ui'
+# Form implementation generated from reading ui file '.\ui\lamp.ui'
 #
 # Created by: PyQt5 UI code generator 5.7
 #
@@ -297,12 +297,22 @@ class Ui_Lamp(object):
 "\n"
 "/** CUSTOM **/\n"
 "\n"
+"QPushButton {\n"
+"    color: black;\n"
+"    font-size: 30pt;\n"
+"}\n"
+"\n"
 "QPushButton#button_on {\n"
 "    background-color: #1db954\n"
 "}\n"
 "\n"
 "QPushButton#button_off {\n"
 "    background-color: red;\n"
+"}\n"
+"\n"
+"QPushButton#button_back {\n"
+"    font-size: 12pt;\n"
+"    background-color: #1565C0;\n"
 "}\n"
 "\n"
 "")
@@ -319,6 +329,9 @@ class Ui_Lamp(object):
         self.button_off = QtWidgets.QPushButton(Form)
         self.button_off.setGeometry(QtCore.QRect(470, 170, 241, 171))
         self.button_off.setObjectName("button_off")
+        self.button_back = QtWidgets.QPushButton(Form)
+        self.button_back.setGeometry(QtCore.QRect(20, 20, 101, 41))
+        self.button_back.setObjectName("button_back")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -329,4 +342,5 @@ class Ui_Lamp(object):
         self.button_on.setText(_translate("Form", "ON"))
         self.label.setText(_translate("Form", "Lamp Controller"))
         self.button_off.setText(_translate("Form", "OFF"))
+        self.button_back.setText(_translate("Form", "BACK"))
 

@@ -304,12 +304,22 @@ QMenu::separator {
 
 /** CUSTOM **/
 
+QPushButton {
+	color: black;
+	font-size: 30pt;
+}
+
 QPushButton#button_on {
 	background-color: #1db954
 }
 
 QPushButton#button_off {
 	background-color: red;
+}
+
+QPushButton#button_back {
+	font-size: 12pt;
+	background-color: #1565C0;
 }
 
 </string>
@@ -359,6 +369,19 @@ QPushButton#button_off {
    </property>
    <property name="text">
     <string>OFF</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_back">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>BACK</string>
    </property>
   </widget>
  </widget>

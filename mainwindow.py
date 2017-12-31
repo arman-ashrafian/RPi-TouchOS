@@ -323,7 +323,7 @@ class Ui_MainWindow(object):
         self.button_lamp.setIconSize(QtCore.QSize(50, 50))
         self.button_lamp.setObjectName("button_lamp")
         self.button_exit = QtWidgets.QPushButton(self.centralWidget)
-        self.button_exit.setGeometry(QtCore.QRect(20, 20, 71, 21))
+        self.button_exit.setGeometry(QtCore.QRect(20, 20, 101, 41))
         self.button_exit.setObjectName("button_exit")
         MainWindow.setCentralWidget(self.centralWidget)
         self.statusBar = QtWidgets.QStatusBar(MainWindow)

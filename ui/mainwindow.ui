@@ -350,8 +350,8 @@ QPushButton#button_exit {
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>71</width>
-      <height>21</height>
+      <width>101</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
