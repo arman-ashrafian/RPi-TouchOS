@@ -66,9 +66,9 @@ class CryptoWindow(QWidget, Ui_Crypto):
 		self.setupUi(self)
 
 		# eth request
-		self.eth_req = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD"
+		self.eth_req = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD&e=Coinbase"
 		# btc request
-		self.btc_req = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD"
+		self.btc_req = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD&e=Coinbase"
 
 		# connect buttons
 		self.button_back.clicked.connect(lambda: self.button_back_pressed())
