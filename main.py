@@ -4,6 +4,7 @@ from PyQt5 import QtCore
 import sys
 import requests
 import json
+from open_weather import OWM
 
 LAMP_URL = "https://5658d085.ngrok.io"
 
@@ -11,6 +12,7 @@ LAMP_URL = "https://5658d085.ngrok.io"
 from mainwindow import Ui_MainWindow 
 from lamp import Ui_Lamp
 from crypto import Ui_Crypto
+from weather import Ui_Weather
 
 class MainWindow(QMainWindow, Ui_MainWindow):
 	def __init__(self):
@@ -21,6 +23,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		self.button_lamp.clicked.connect(lambda: self.lamp_clicked())
 		self.button_exit.clicked.connect(lambda: self.exit_clicked())
 		self.button_crypto.clicked.connect(lambda: self.crypto_clicked())
+		self.button_weather.clicked.connect(lambda: self.weather_clicked())
 
 		# show
 		self.showFullScreen()
@@ -31,6 +34,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 	def crypto_clicked(self):
 		cryptoWindow = CryptoWindow()
+		self.close()
+
+	def weather_clicked(self):
+		weatherWindow = WeatherWindow()
 		self.close()
 
 	def exit_clicked(self):
@@ -125,6 +132,65 @@ class CryptoWindow(QWidget, Ui_Crypto):
 			btc_delta_sign = ''
 			self.label_btc_delta.setStyleSheet('color:red')
 		self.label_btc_delta.setText('(%s%.2f %%)' % (btc_delta_sign, btc_delta))
+
+class WeatherWindow(QWidget, Ui_Weather):
+	def __init__(self):
+		super(self.__class__, self).__init__()
+		self.setupUi(self)
+
+		# connect buttons
+		self.button_back.clicked.connect(lambda: self.button_back_pressed())
+
+		# show
+		self.showFullScreen()
+
+		# weather
+		self.city = "Laguna Niguel"
+		self.owm = OWM(self.city)
+
+		self.display_weather()
+
+
+	def button_back_pressed(self):
+		mainWindow = MainWindow()
+		self.close()
+
+	def display_weather(self):
+		weather = self.owm.get_weather()
+
+		# city name
+		self.label_city.setText(self.city)
+
+		# temp
+		temp = weather.get_temperature('fahrenheit')['temp']
+		temp = "{:.0f}".format(temp)
+		self.label_temp.setText(temp + '°')
+
+		# icon
+		icon = weather.get_weather_icon_name()
+		self.label_icon.setPixmap(PyQt5.QtGui.QPixmap('ui/weather icons/{}.png'.format(icon)))
+		self.label_icon.show()
+
+		# status
+		status = weather.get_detailed_status()
+		self.label_status.setText(status)
+
+		# max temp
+		max_temp = weather.get_temperature('fahrenheit')['temp_max']
+		max_temp = "{:.0f}".format(max_temp)
+		self.label_max_temp.setText(max_temp + '°')
+
+		# min temp
+		min_temp = weather.get_temperature('fahrenheit')['temp_min']
+		min_temp = "{:.0f}".format(min_temp)
+		self.label_min_temp.setText(min_temp + '°')
+
+		# humidity
+		hum = weather.get_humidity()
+		self.label_humidity.setText('{}%'.format(hum))
+
+
+
 
 def main():
 	app = QApplication(sys.argv)

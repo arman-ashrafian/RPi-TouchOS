@@ -323,6 +323,11 @@ QPushButton#button_exit {
 	font-size: 12pt;
 	background-color: #1565C0
 }
+
+QPushButton#button_weather {
+	font-size: 12pt;
+	background-color: #66BB6A
+}
 </string>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -385,8 +390,30 @@ QPushButton#button_exit {
      </size>
     </property>
    </widget>
+   <widget class="QPushButton" name="button_weather">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>180</y>
+      <width>171</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Weather</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icon_weather.ico</normaloff>icon_weather.ico</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>50</width>
+      <height>50</height>
+     </size>
+    </property>
+   </widget>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

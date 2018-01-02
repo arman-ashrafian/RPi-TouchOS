@@ -316,6 +316,11 @@ class Ui_MainWindow(object):
 "    font-size: 12pt;\n"
 "    background-color: #1565C0\n"
 "}\n"
+"\n"
+"QPushButton#button_weather {\n"
+"    font-size: 12pt;\n"
+"    background-color: #66BB6A\n"
+"}\n"
 "")
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.centralWidget.setObjectName("centralWidget")
@@ -336,10 +341,14 @@ class Ui_MainWindow(object):
         self.button_crypto.setIcon(icon1)
         self.button_crypto.setIconSize(QtCore.QSize(50, 50))
         self.button_crypto.setObjectName("button_crypto")
+        self.button_weather = QtWidgets.QPushButton(self.centralWidget)
+        self.button_weather.setGeometry(QtCore.QRect(570, 180, 171, 121))
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap("ui/icon_weather.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.button_weather.setIcon(icon2)
+        self.button_weather.setIconSize(QtCore.QSize(50, 50))
+        self.button_weather.setObjectName("button_weather")
         MainWindow.setCentralWidget(self.centralWidget)
-        self.statusBar = QtWidgets.QStatusBar(MainWindow)
-        self.statusBar.setObjectName("statusBar")
-        MainWindow.setStatusBar(self.statusBar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -350,4 +359,5 @@ class Ui_MainWindow(object):
         self.button_lamp.setText(_translate("MainWindow", "Lamp"))
         self.button_exit.setText(_translate("MainWindow", "EXIT"))
         self.button_crypto.setText(_translate("MainWindow", "Crypto"))
+        self.button_weather.setText(_translate("MainWindow", "Weather"))
 
