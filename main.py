@@ -3,11 +3,6 @@ from PyQt5.QtWidgets import *
 import sys
 import requests
 
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.figure import Figure
-import matplotlib.pyplot as plt
-import random
-
 LAMP_URL = "https://5658d085.ngrok.io"
 
 # import ui file here
@@ -65,9 +60,6 @@ class CryptoWindow(QWidget, Ui_Crypto):
 		super(self.__class__, self).__init__()
 		self.setupUi(self)
 
-		m = PlotCanvas(self, width=5, height=4)
-		m.move(100,100)
-
 		# connect buttons
 		self.button_back.clicked.connect(lambda: self.button_back_pressed())
 
@@ -75,29 +67,6 @@ class CryptoWindow(QWidget, Ui_Crypto):
 		mainWindow = MainWindow()
 		mainWindow.showFullScreen()
 		self.close()
-
-class PlotCanvas(FigureCanvas):
- 
-    def __init__(self, parent=None, width=5, height=4, dpi=100):
-        fig = Figure(figsize=(width, height), dpi=dpi)
-        self.axes = fig.add_subplot(111)
- 
-        FigureCanvas.__init__(self, fig)
-        self.setParent(parent)
- 
-        FigureCanvas.setSizePolicy(self,
-                QSizePolicy.Expanding,
-                QSizePolicy.Expanding)
-        FigureCanvas.updateGeometry(self)
-        self.plot()
- 
- 
-    def plot(self):
-        data = [random.random() for i in range(25)]
-        ax = self.figure.add_subplot(111)
-        ax.plot(data, 'r-')
-        ax.set_title('PyQt Matplotlib Example')
-        self.draw()
 
 
 def main():
