@@ -75,6 +75,10 @@ class CryptoWindow(QWidget, Ui_Crypto):
 		# show
 		self.showFullScreen()
 
+		# set eth & btc price
+		self.set_eth_price()
+		self.set_btc_price()
+
 	def button_back_pressed(self):
 		mainWindow = MainWindow()
 		self.close()
@@ -84,17 +88,32 @@ class CryptoWindow(QWidget, Ui_Crypto):
 		data = json.loads(resp.text)
 
 		# set price
-		self.label_eth_price.setText('$' + str(data['RAW']['ETH']['USD']['PRICE']))
+		self.label_eth_price.setText('$ {:,.2f}'.format(data['RAW']['ETH']['USD']['PRICE']))
 
 		# set delta
 		eth_delta = data['RAW']['ETH']['USD']['CHANGEPCT24HOUR']
 		eth_delta_sign = '+'
 		self.label_eth_delta.setStyleSheet('color:green')
 		if eth_delta < 0: 
-			eth_delta_sign = '-'
+			eth_delta_sign = ''
 			self.label_eth_delta.setStyleSheet('color:red')
-		self.label_eth_delta.setText('(%s %.2f %%)' % (eth_delta_sign, eth_delta))
+		self.label_eth_delta.setText('(%s%.2f %%)' % (eth_delta_sign, eth_delta))
 
+	def set_btc_price(self):
+		resp = requests.get(self.btc_req)
+		data = json.loads(resp.text)
+
+		# set price
+		self.label_btc_price.setText('$ {:,.2f}'.format(data['RAW']['BTC']['USD']['PRICE']))
+
+		# set delta
+		btc_delta = data['RAW']['BTC']['USD']['CHANGEPCT24HOUR']
+		btc_delta_sign = '+'
+		self.label_btc_delta.setStyleSheet('color:green')
+		if btc_delta < 0: 
+			btc_delta_sign = ''
+			self.label_btc_delta.setStyleSheet('color:red')
+		self.label_btc_delta.setText('(%s%.2f %%)' % (btc_delta_sign, btc_delta))
 
 def main():
 	app = QApplication(sys.argv)
