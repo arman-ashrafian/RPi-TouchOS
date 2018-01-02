@@ -1,5 +1,6 @@
 import PyQt5
 from PyQt5.QtWidgets import *
+from PyQt5 import QtCore
 import sys
 import requests
 import json
@@ -78,6 +79,16 @@ class CryptoWindow(QWidget, Ui_Crypto):
 		# set eth & btc price
 		self.set_eth_price()
 		self.set_btc_price()
+
+		# set up timers for price updates
+		self.timer_eth = QtCore.QTimer()
+		self.timer_eth.timeout.connect(self.set_eth_price)
+
+		self.timer_btc = QtCore.QTimer()
+		self.timer_btc.timeout.connect(self.set_btc_price)
+
+		self.timer_eth.start(20000)	# 20 seconds
+		self.timer_btc.start(20000) # 20 seconds
 
 	def button_back_pressed(self):
 		mainWindow = MainWindow()
