@@ -314,6 +314,24 @@ QPushButton#button_back {
 	background-color: #1565C0;
 }
 
+QLabel#label_eth {
+	color: #ECF0F1;
+	font-size: 20pt;
+	background-color: #3C3C3D;
+}
+
+QLabel{
+	color: #ECF0F1;
+	font-size: 22pt;
+}
+
+QLabel#label_btc {
+	color: #ECF0F1;
+	font-size: 20pt;
+	background-color: #FF9900;
+}
+
+
 </string>
   </property>
   <widget class="QPushButton" name="button_back">
@@ -328,6 +346,104 @@ QPushButton#button_back {
    <property name="text">
     <string>BACK</string>
    </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>90</y>
+     <width>341</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="label_btc">
+      <property name="text">
+       <string>BTC</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_btc_price">
+        <property name="text">
+         <string>$13,000</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_btc_delta">
+        <property name="text">
+         <string>(+12.0%)</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>90</y>
+     <width>331</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="label_eth">
+      <property name="text">
+       <string>ETH</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label_eth_price">
+        <property name="text">
+         <string>$800</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_eth_delta">
+        <property name="text">
+         <string>(+10.0%)</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

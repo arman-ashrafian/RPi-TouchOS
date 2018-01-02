@@ -307,10 +307,72 @@ class Ui_Crypto(object):
 "    background-color: #1565C0;\n"
 "}\n"
 "\n"
+"QLabel#label_eth {\n"
+"    color: #ECF0F1;\n"
+"    font-size: 20pt;\n"
+"    background-color: #3C3C3D;\n"
+"}\n"
+"\n"
+"QLabel{\n"
+"    color: #ECF0F1;\n"
+"    font-size: 22pt;\n"
+"}\n"
+"\n"
+"QLabel#label_btc {\n"
+"    color: #ECF0F1;\n"
+"    font-size: 20pt;\n"
+"    background-color: #FF9900;\n"
+"}\n"
+"\n"
+"\n"
 "")
         self.button_back = QtWidgets.QPushButton(Crypto)
         self.button_back.setGeometry(QtCore.QRect(20, 20, 101, 41))
         self.button_back.setObjectName("button_back")
+        self.layoutWidget = QtWidgets.QWidget(Crypto)
+        self.layoutWidget.setGeometry(QtCore.QRect(410, 90, 341, 191))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.layoutWidget)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_2.setSpacing(0)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.label_btc = QtWidgets.QLabel(self.layoutWidget)
+        self.label_btc.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_btc.setObjectName("label_btc")
+        self.verticalLayout_2.addWidget(self.label_btc)
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.label_btc_price = QtWidgets.QLabel(self.layoutWidget)
+        self.label_btc_price.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_btc_price.setObjectName("label_btc_price")
+        self.horizontalLayout_2.addWidget(self.label_btc_price)
+        self.label_btc_delta = QtWidgets.QLabel(self.layoutWidget)
+        self.label_btc_delta.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_btc_delta.setObjectName("label_btc_delta")
+        self.horizontalLayout_2.addWidget(self.label_btc_delta)
+        self.verticalLayout_2.addLayout(self.horizontalLayout_2)
+        self.widget = QtWidgets.QWidget(Crypto)
+        self.widget.setGeometry(QtCore.QRect(50, 90, 331, 191))
+        self.widget.setObjectName("widget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.widget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setSpacing(0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label_eth = QtWidgets.QLabel(self.widget)
+        self.label_eth.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_eth.setObjectName("label_eth")
+        self.verticalLayout.addWidget(self.label_eth)
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.label_eth_price = QtWidgets.QLabel(self.widget)
+        self.label_eth_price.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_eth_price.setObjectName("label_eth_price")
+        self.horizontalLayout.addWidget(self.label_eth_price)
+        self.label_eth_delta = QtWidgets.QLabel(self.widget)
+        self.label_eth_delta.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_eth_delta.setObjectName("label_eth_delta")
+        self.horizontalLayout.addWidget(self.label_eth_delta)
+        self.verticalLayout.addLayout(self.horizontalLayout)
 
         self.retranslateUi(Crypto)
         QtCore.QMetaObject.connectSlotsByName(Crypto)
@@ -319,4 +381,10 @@ class Ui_Crypto(object):
         _translate = QtCore.QCoreApplication.translate
         Crypto.setWindowTitle(_translate("Crypto", "Form"))
         self.button_back.setText(_translate("Crypto", "BACK"))
+        self.label_btc.setText(_translate("Crypto", "BTC"))
+        self.label_btc_price.setText(_translate("Crypto", "$13,000"))
+        self.label_btc_delta.setText(_translate("Crypto", "(+12.0%)"))
+        self.label_eth.setText(_translate("Crypto", "ETH"))
+        self.label_eth_price.setText(_translate("Crypto", "$800"))
+        self.label_eth_delta.setText(_translate("Crypto", "(+10.0%)"))
 
