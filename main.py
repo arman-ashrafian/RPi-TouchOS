@@ -8,7 +8,7 @@ from open_weather import OWM
 
 LAMP_URL = "https://5658d085.ngrok.io"
 
-# import ui file here
+# import ui files here
 from mainwindow import Ui_MainWindow 
 from lamp import Ui_Lamp
 from crypto import Ui_Crypto
@@ -147,9 +147,12 @@ class WeatherWindow(QWidget, Ui_Weather):
 		# weather
 		self.city = "Laguna Niguel"
 		self.owm = OWM(self.city)
-
 		self.display_weather()
 
+		# weather update timer
+		self.timer = QtCore.QTimer()
+		self.timer.timeout.connect(self.display_weather)
+		self.timer.start(300000) # 5 minutes
 
 	def button_back_pressed(self):
 		mainWindow = MainWindow()
@@ -188,9 +191,6 @@ class WeatherWindow(QWidget, Ui_Weather):
 		# humidity
 		hum = weather.get_humidity()
 		self.label_humidity.setText('{}%'.format(hum))
-
-
-
 
 def main():
 	app = QApplication(sys.argv)
