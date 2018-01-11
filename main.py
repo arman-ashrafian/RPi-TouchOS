@@ -7,6 +7,8 @@ import json
 from open_weather import OWM
 
 LAMP_URL = "https://5658d085.ngrok.io"
+ETH_ADDY = "0xaddfc1233fe9909e159715ac179a6ba4a470a451"
+ETHPLORER_API = "freekey"
 
 # import ui files here
 from mainwindow import Ui_MainWindow 
@@ -74,6 +76,9 @@ class CryptoWindow(QWidget, Ui_Crypto):
 
 		# eth request
 		self.eth_req = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD&e=Coinbase"
+		# eth account request
+		self.eth_req_account = "https://api.ethplorer.io/getAddressInfo/{}?apiKey={}".format(ETH_ADDY, ETHPLORER_API)
+
 		# btc request
 		self.btc_req = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD&e=Coinbase"
 
@@ -106,7 +111,8 @@ class CryptoWindow(QWidget, Ui_Crypto):
 		data = json.loads(resp.text)
 
 		# set price
-		self.label_eth_price.setText('$ {:,.2f}'.format(data['RAW']['ETH']['USD']['PRICE']))
+		eth_price = data['RAW']['ETH']['USD']['PRICE']
+		self.label_eth_price.setText('$ {:,.2f}'.format(eth_price))
 
 		# set delta
 		eth_delta = data['RAW']['ETH']['USD']['CHANGEPCT24HOUR']
@@ -116,6 +122,21 @@ class CryptoWindow(QWidget, Ui_Crypto):
 			eth_delta_sign = ''
 			self.label_eth_delta.setStyleSheet('color:red')
 		self.label_eth_delta.setText('(%s%.2f %%)' % (eth_delta_sign, eth_delta))
+
+		self.set_eth_balance(eth_price)
+
+	def set_eth_balance(self, currentPrice):
+		resp = requests.get(self.eth_req_account)
+		data = json.loads(resp.text)
+
+		eth_balance = data['ETH']['balance']
+		usd_balance = currentPrice * eth_balance
+
+		self.label_ethbalance.setText('ETH: %.4f' % eth_balance)
+		self.label_usdbalance.setText('USD: $%.2f' % usd_balance)
+
+
+
 
 	def set_btc_price(self):
 		resp = requests.get(self.btc_req)
