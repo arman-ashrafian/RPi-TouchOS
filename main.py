@@ -66,6 +66,7 @@ class LampWindow(QWidget, Ui_Lamp):
 		requests.post(LAMP_URL + "/off/")
 
 	def button_back_pressed(self):
+		self.button_back.setEnabled(False)
 		mainWindow = MainWindow()
 		self.close()
 
@@ -103,6 +104,7 @@ class CryptoWindow(QWidget, Ui_Crypto):
 		self.timer_btc.start(20000) # 20 seconds
 
 	def button_back_pressed(self):
+		self.button_back.setEnabled(False)
 		mainWindow = MainWindow()
 		self.close()
 
@@ -134,9 +136,6 @@ class CryptoWindow(QWidget, Ui_Crypto):
 
 		self.label_ethbalance.setText('ETH: %.4f' % eth_balance)
 		self.label_usdbalance.setText('USD: $%.2f' % usd_balance)
-
-
-
 
 	def set_btc_price(self):
 		resp = requests.get(self.btc_req)
@@ -176,6 +175,7 @@ class WeatherWindow(QWidget, Ui_Weather):
 		self.timer.start(300000) # 5 minutes
 
 	def button_back_pressed(self):
+		self.button_back.setEnabled(False)
 		mainWindow = MainWindow()
 		self.close()
 
