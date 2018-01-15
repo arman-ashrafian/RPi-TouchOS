@@ -31,14 +31,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 		self.showFullScreen()
 
 	def lamp_clicked(self):
+		self.button_lamp.setEnabled(False)
 		lampWindow = LampWindow()
 		self.close()
 
 	def crypto_clicked(self):
+		self.button_crypto.setEnabled(False)
 		cryptoWindow = CryptoWindow()
 		self.close()
 
 	def weather_clicked(self):
+		self.button_weather.setEnabled(False)
 		weatherWindow = WeatherWindow()
 		self.close()
 
